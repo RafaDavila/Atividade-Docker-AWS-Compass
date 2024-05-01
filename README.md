@@ -1,4 +1,4 @@
-# Atividade-Docker-AWS-Compass
+![image](https://github.com/RafaDavila/Atividade-Docker-AWS-Compass/assets/113639519/e8d2cff6-9941-4c98-aa83-39687ce2fde9)# Atividade-Docker-AWS-Compass
 Segundo projeto do Estágio de AWS e DevOps da Compass
 
 # **Sobre a atividade**
@@ -45,6 +45,117 @@ Segundo projeto do Estágio de AWS e DevOps da Compass
 ![image](https://github.com/RafaDavila/Atividade-Docker-AWS-Compass/assets/113639519/2dab5805-b5d6-4d97-be4a-0fb7001b2aab)
 
 ![image](https://github.com/RafaDavila/Atividade-Docker-AWS-Compass/assets/113639519/73d6768a-0633-4f11-9425-b3d07ac18edd)
+
+## **Criando os Security Group:**
+
+• No menu EC2 procure por ``Security groups`` na barra de navegação à esquerda.
+
+• Acesse e clique em ``Criar novo grupo de segurança``, o meu ficou assim:
+
+![image](https://github.com/RafaDavila/Atividade-Docker-AWS-Compass/assets/113639519/387ebf56-6d56-43d1-84e2-d72e26a961a9)
+
+## **Criando o EFS:**
+
+• Busque por ``EFS``
+• Na Página de EFS clique em ``Criar sistema de arquivos``.
+
+![image](https://github.com/RafaDavila/Atividade-Docker-AWS-Compass/assets/113639519/18fd24f8-8925-43c8-8568-91fa8071b1d6)
+
+• Clique em ``Personalizar`` e coloque o SG do EFS criado posteriormente.
+
+![image](https://github.com/RafaDavila/Atividade-Docker-AWS-Compass/assets/113639519/f1311382-1e4f-4584-a438-fd23c086268b)
+
+## **Criando o RDS:**
+
+• Vá até ``RDS`` na AWS e em ``Criar Banco de Dados``.
+
+![image](https://github.com/RafaDavila/Atividade-Docker-AWS-Compass/assets/113639519/d76c6ed1-3f0c-4cbd-bf46-2abaf9983602)
+
+• Escolha ``MySQL``
+
+![image](https://github.com/RafaDavila/Atividade-Docker-AWS-Compass/assets/113639519/87158273-c072-45f4-81c3-e24119c8a13e)
+
+![image](https://github.com/RafaDavila/Atividade-Docker-AWS-Compass/assets/113639519/97713137-6ae4-4899-8546-0f97ac33fb40)
+
+• Escolha o nome do usuário e senha.
+
+![image](https://github.com/RafaDavila/Atividade-Docker-AWS-Compass/assets/113639519/02a47261-897b-4393-beea-d415e0ddd460)
+
+• Escolha a VPC criada anteriormente.
+
+![image](https://github.com/RafaDavila/Atividade-Docker-AWS-Compass/assets/113639519/32c3b55f-2487-4609-8a0c-097cc903a653)
+
+• Permita o acesso público e coloque o SG criado anteriormente.
+
+
+![image](https://github.com/RafaDavila/Atividade-Docker-AWS-Compass/assets/113639519/4d1c4830-0212-401d-a5a5-a0992dc5fa39)
+
+## **Criando o modelo de execução:**
+
+• Vá ate o painel ``EC2`` e no menu esquerdo escolha ``Modelos de Execução`` 
+
+![image](https://github.com/RafaDavila/Atividade-Docker-AWS-Compass/assets/113639519/3ae9a5e5-1c24-490d-9c43-d5c00ccfc13d)
+
+• Em detalhes avançado, desca até ``Dados do Usuário`` e coloque o conteudo do arquivo StartScript.sh contido neste repositório.
+
+![image](https://github.com/RafaDavila/Atividade-Docker-AWS-Compass/assets/113639519/272f2d52-1974-4254-874f-75518ae746d2)
+
+## **Criando o Grupo de Destino:**
+
+• No menu esquerdo, escolha ``Grupos de Destino`` e crie um novo.
+
+![image](https://github.com/RafaDavila/Atividade-Docker-AWS-Compass/assets/113639519/da280d98-13fa-4c2a-889e-f7a4bf7be8f8)
+
+![image](https://github.com/RafaDavila/Atividade-Docker-AWS-Compass/assets/113639519/4da84efc-c25f-495a-bf4b-4fd668d5d47d)
+
+![image](https://github.com/RafaDavila/Atividade-Docker-AWS-Compass/assets/113639519/57e94a39-671a-4b56-a831-62096ad3d9d6)
+
+• Escolha a VPC criada anteriormente
+
+![image](https://github.com/RafaDavila/Atividade-Docker-AWS-Compass/assets/113639519/9d18fc69-8610-453d-8e7b-3985fbb0303f)
+
+## **Criando o Load Balancer:**
+
+• Ainda no menu esquerdo EC2, busque por ``Load Balancer`` e crie um novo
+
+![image](https://github.com/RafaDavila/Atividade-Docker-AWS-Compass/assets/113639519/c2b983f2-81d6-4162-b5bd-f61e4e3f5e9d)
+
+• Escolha Apllication Load Balancer
+
+![image](https://github.com/RafaDavila/Atividade-Docker-AWS-Compass/assets/113639519/067cfcd8-fc8d-4f19-a1f3-3b6dd536150f)
+
+![image](https://github.com/RafaDavila/Atividade-Docker-AWS-Compass/assets/113639519/b82e10bb-162d-48af-b280-9ab880a0dec3)
+
+• Selecione a VPC criada anteriormente e o grupo de segurança ALB
+
+![image](https://github.com/RafaDavila/Atividade-Docker-AWS-Compass/assets/113639519/0912f370-3d1f-482d-8af7-21716af0a19b)
+
+![image](https://github.com/RafaDavila/Atividade-Docker-AWS-Compass/assets/113639519/27130c3a-b421-408c-bf02-9ae68ab8da06)
+
+• Selecione o grupo de destino criado anteriormente
+
+![image](https://github.com/RafaDavila/Atividade-Docker-AWS-Compass/assets/113639519/46f58cc7-7222-4d3c-8105-8549d97880c0)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
