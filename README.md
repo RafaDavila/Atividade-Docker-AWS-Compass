@@ -136,6 +136,32 @@ Segundo projeto do Estágio de AWS e DevOps da Compass
 
 ![image](https://github.com/RafaDavila/Atividade-Docker-AWS-Compass/assets/113639519/46f58cc7-7222-4d3c-8105-8549d97880c0)
 
+## **Criando o Auto Scaling:**
+
+• No menu a esquerda, vá até ``Grupos de Auto Scaling``
+
+![image](https://github.com/RafaDavila/Atividade-Docker-AWS-Compass/assets/113639519/88043420-1b32-4946-af11-8cdd4a6770fb)
+
+• Dê um nome e escolha o modelo de execução criado anteriormente
+
+![image](https://github.com/RafaDavila/Atividade-Docker-AWS-Compass/assets/113639519/6745c081-eb2d-425b-91f1-141cdb987e49)
+
+• Escolha a VPC criada anteriormente e as sub-redes
+
+![image](https://github.com/RafaDavila/Atividade-Docker-AWS-Compass/assets/113639519/de17aed6-0486-41f4-959f-40d806f6b046)
+
+• Anexe o balanceador de carga criado anteriormente
+
+![image](https://github.com/RafaDavila/Atividade-Docker-AWS-Compass/assets/113639519/2047ff56-b7ed-493e-bbb9-839aa0282e36)
+
+• Em tamanho do grupo, escolha estas opções: 
+
+![image](https://github.com/RafaDavila/Atividade-Docker-AWS-Compass/assets/113639519/36f95f1b-836e-470d-835b-5175bf2cbdd9)
+
+
+
+
+
 
 
 
