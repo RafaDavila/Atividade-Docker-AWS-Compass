@@ -1,4 +1,4 @@
-![image](https://github.com/RafaDavila/Atividade-Docker-AWS-Compass/assets/113639519/e8d2cff6-9941-4c98-aa83-39687ce2fde9)# Atividade-Docker-AWS-Compass
+# Atividade-Docker-AWS-Compass
 Segundo projeto do Estágio de AWS e DevOps da Compass
 
 # **Sobre a atividade**
