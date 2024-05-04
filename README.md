@@ -251,9 +251,7 @@ Para acessar o MySQL executei o comando abaixo passando o endpoint, porta e usu�
 
 Digite a senha
 
-Comando show databases; para listar os bancos de dados disponíveis.
-Comando use dockerdb para selecionar o banco de dados dockerdb.
-Comando show tables; para listar todas as tabelas criadas dentro do banco de dados dockerdb.
+Comando \show databases; para listar os bancos de dados disponíveis.
 
 
 
