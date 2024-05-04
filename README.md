@@ -24,25 +24,18 @@ Segundo projeto do Estágio de AWS e DevOps da Compass
 • Clique em "Criar VPC" depois em "VPC e muito mais"
 ![image](https://github.com/RafaDavila/Atividade-Docker-AWS-Compass/assets/113639519/eb04214e-8515-4d37-8054-10bab45471c7)
 
-• Após criar a VPC ainda no menu vá até ``Gateways NAT``.
+Em Resources to create selecionei VPC and more.
 
-![image](https://github.com/RafaDavila/Atividade-Docker-AWS-Compass/assets/113639519/add8a64b-c4ac-442f-80f8-73e129aa93d2)
+Em Name tag auto-generation coloquei o nome "docker-vpc".
 
-• Clique em Criar ``gateway NAT ``.
+Em Number of Availability Zones (AZs) selecionei 2.
 
-• Escolha uma das sub-redes públicas.
+Em NAT gateways selecionei In 1 AZ.
 
-![image](https://github.com/RafaDavila/Atividade-Docker-AWS-Compass/assets/113639519/6bee2087-638a-443b-8ddd-7a20a6fbcba7)
+Em VPC endpoints selecionei None.
 
-• Após criar o NAT gateway, acesse ``Tabelas de rotas`` no menu da esquerda.
+Cliquei em Create VPC.
 
-• Na Tabela de rotas selecione as rotas privadas, clique em Ações e selecione Editar rotas.
-
-• Em Editar rotas em destino selecione 0.0.0/0
-
-• Em Alvo selecione Gateway NAT e selecione o NAT gateway criado anteriormente.
-
-![image](https://github.com/RafaDavila/Atividade-Docker-AWS-Compass/assets/113639519/2dab5805-b5d6-4d97-be4a-0fb7001b2aab)
 
 ![image](https://github.com/RafaDavila/Atividade-Docker-AWS-Compass/assets/113639519/73d6768a-0633-4f11-9425-b3d07ac18edd)
 
@@ -52,7 +45,8 @@ Segundo projeto do Estágio de AWS e DevOps da Compass
 
 • Acesse e clique em ``Criar novo grupo de segurança``, o meu ficou assim:
 
-![image](https://github.com/RafaDavila/Atividade-Docker-AWS-Compass/assets/113639519/387ebf56-6d56-43d1-84e2-d72e26a961a9)
+![image](https://github.com/RafaDavila/Atividade-Docker-AWS-Compass/assets/113639519/f4bab2b7-fb90-46a3-b7b3-675e34f6fbc5)
+
 
 ## **Criando o EFS:**
 
@@ -61,7 +55,11 @@ Segundo projeto do Estágio de AWS e DevOps da Compass
 
 ![image](https://github.com/RafaDavila/Atividade-Docker-AWS-Compass/assets/113639519/18fd24f8-8925-43c8-8568-91fa8071b1d6)
 
-• Clique em ``Personalizar`` e coloque o SG do EFS criado posteriormente.
+No campo Virtual Private Cloud (VPC) selecionei a VPC que foi criada anteriormente.
+
+No campo Subnet ID selecionei as subnets privadas de cada AZ.
+
+No campo Security groups selecionei o grupo "EFS" que foi criado anteriormente.
 
 ![image](https://github.com/RafaDavila/Atividade-Docker-AWS-Compass/assets/113639519/f1311382-1e4f-4584-a438-fd23c086268b)
 
@@ -120,21 +118,24 @@ Segundo projeto do Estágio de AWS e DevOps da Compass
 
 ![image](https://github.com/RafaDavila/Atividade-Docker-AWS-Compass/assets/113639519/c2b983f2-81d6-4162-b5bd-f61e4e3f5e9d)
 
-• Escolha Apllication Load Balancer
+Dentro de Load Balancers cliquei no botão Create load balancer.
 
-![image](https://github.com/RafaDavila/Atividade-Docker-AWS-Compass/assets/113639519/067cfcd8-fc8d-4f19-a1f3-3b6dd536150f)
+Em Load balancer types cliquei em Classic Load Balancer e depois em Create.
+
+No campo Load balancer name digitei "ws-clb".
+
+Na seção Network mapping, no campo VPC selecionei a VPC criada anteriormente.
+
+No campo Mappings selecionei as duas AZ's e suas respectivas subnets públicas.
+
+No campo de Security groups selecionei o grupo "Load Balancer" que foi criado anteriormente.
+
+Na seção Health checks, no campo Ping path adicionei o caminho "/wp-admin/install.php".
+
+Cliquei em Create load balancer para finalizar.
 
 ![image](https://github.com/RafaDavila/Atividade-Docker-AWS-Compass/assets/113639519/b82e10bb-162d-48af-b280-9ab880a0dec3)
 
-• Selecione a VPC criada anteriormente e o grupo de segurança ALB
-
-![image](https://github.com/RafaDavila/Atividade-Docker-AWS-Compass/assets/113639519/0912f370-3d1f-482d-8af7-21716af0a19b)
-
-![image](https://github.com/RafaDavila/Atividade-Docker-AWS-Compass/assets/113639519/27130c3a-b421-408c-bf02-9ae68ab8da06)
-
-• Selecione o grupo de destino criado anteriormente
-
-![image](https://github.com/RafaDavila/Atividade-Docker-AWS-Compass/assets/113639519/46f58cc7-7222-4d3c-8105-8549d97880c0)
 
 ## **Criando o Auto Scaling:**
 
@@ -142,21 +143,119 @@ Segundo projeto do Estágio de AWS e DevOps da Compass
 
 ![image](https://github.com/RafaDavila/Atividade-Docker-AWS-Compass/assets/113639519/88043420-1b32-4946-af11-8cdd4a6770fb)
 
-• Dê um nome e escolha o modelo de execução criado anteriormente
+Acessei o console AWS e entrei no serviço EC2.
 
-![image](https://github.com/RafaDavila/Atividade-Docker-AWS-Compass/assets/113639519/6745c081-eb2d-425b-91f1-141cdb987e49)
+No menu lateral esquerdo, na seção de Auto Scaling selecionei Auto Scaling Groups.
 
-• Escolha a VPC criada anteriormente e as sub-redes
+Dentro de Auto Scaling groups cliquei no botão Create Auto Scaling group.
 
-![image](https://github.com/RafaDavila/Atividade-Docker-AWS-Compass/assets/113639519/de17aed6-0486-41f4-959f-40d806f6b046)
+Executei a seguinte configuração:
 
-• Anexe o balanceador de carga criado anteriormente
+•  - Choose launch template:
+Na seção Launch template selecionei o template criado anteriormente.
 
-![image](https://github.com/RafaDavila/Atividade-Docker-AWS-Compass/assets/113639519/2047ff56-b7ed-493e-bbb9-839aa0282e36)
+•  - Choose instance launch options:
+Na seção Network, no campo VPC selecionei a VPC criada anteriormente.
+No campo Availability Zones and subnets selecionei as duas subnets privadas criadas previamente.
 
-• Em tamanho do grupo, escolha estas opções: 
+•  - Configure advanced options:
+Na seção Load balancing selecionei Attach to an existing load balancer.
+Na seção Attach to an existing load balancer cliquei em Choose from Classic Load Balancers e selecionei o load balancer criado anteriormente.
+Na seção Health checks marquei a opção Turn on Elastic Load Balancing health checks.
 
-![image](https://github.com/RafaDavila/Atividade-Docker-AWS-Compass/assets/113639519/36f95f1b-836e-470d-835b-5175bf2cbdd9)
+•  - Configure group size and scaling:
+No campo Desired capacity digitei "2".
+Em Scaling, no campo Min desired capacity digitei "2".
+No campo Max desired capacity digitei "4".
+Em Automatic scaling selecionei a opção Target tracking scaling policy
+No campo Metric type deixei selecionado Average CPU utilization.
+No campo Target value digitei "75".
+
+
+## **Endpoint**
+
+• Vá até Endpoint e clique em ``Criar Endpoint``
+
+![image](https://github.com/RafaDavila/Atividade-Docker-AWS-Compass/assets/113639519/0d8745c7-1a96-443f-b24e-19a5caebd7e1)
+
+• Dentro de Endpoints cliquei no botão Create endpoint.
+
+• Faça as alterações:
+
+Em Service category selecionei EC2 Instance Connect Endpoint.
+
+Em VPC selecionei a VPC criada anteriormente.
+
+Em Security groups selecionei o grupo "EC2 ICE" que foi criado anteriormente.
+
+Em Subnet selecionei uma subnet privada que foi criada anteriormente.
+
+
+## **WorldPress**
+
+• Vá em ``Load Balancer``
+
+• Clique no que foi criado
+
+• Copie o ``Nome do DNS``
+
+![image](https://github.com/RafaDavila/Atividade-Docker-AWS-Compass/assets/113639519/87c4e4e8-e083-4723-98ae-bd2c7e385e1f)
+
+• Abra no navegador
+
+• Faça a configuração inicial, idioma, e login
+
+• Terá essa página:
+
+![image](https://github.com/RafaDavila/Atividade-Docker-AWS-Compass/assets/113639519/f150c24c-6677-4b8c-9fa1-60306b3c4eee)
+
+
+## **Teste os Serviços:**
+
+• Acessando a instância via endpoint.
+
+• Testando a montagem do EFS:
+
+Comando ``df -h`` para verificar se o EFS está montado.
+
+Comando ``cat /etc/fstab`` para verificar se a montagem persistente está configurada.
+
+![image](https://github.com/RafaDavila/Atividade-Docker-AWS-Compass/assets/113639519/b47cac4b-841f-445d-93fe-8c765f946ee5)
+
+
+
+• Testando o docker e docker-compose:
+
+Comando ``docker ps`` para verificar se o container wordpress está executando.
+
+Comando abaixo para verificar se o docker-compose está funcionando: ``docker-compose -f /efs/docker-compose.yaml ps``
+
+![image](https://github.com/RafaDavila/Atividade-Docker-AWS-Compass/assets/113639519/6fe6d101-6df9-4185-af59-eb99278dce4c)
+
+
+• Acessando o banco de dados da aplicação WordPress:
+
+Copie o ID do container WordPress
+Acesse o container com ``docker exec -it <container-id> /bin/bash``
+
+![image](https://github.com/RafaDavila/Atividade-Docker-AWS-Compass/assets/113639519/85cf0faa-bb4c-4ddd-897a-12258bfd6126)
+
+Dentro do container, use ``apt-get update`` para atualizar a lista de pacotes dos repositórios do container.
+
+![image](https://github.com/RafaDavila/Atividade-Docker-AWS-Compass/assets/113639519/b686e79a-73ca-469e-a207-d35bd636af9a)
+
+
+Para instalar o MySql use ``apt-get install default-mysql-client -y``
+
+Para acessar o MySQL executei o comando abaixo passando o endpoint, porta e usuário do RDS: ``mysql -h <RDS-endpoint> -P 3306 -u <Master username> -p``
+
+Digite a senha
+
+Comando show databases; para listar os bancos de dados disponíveis.
+Comando use dockerdb para selecionar o banco de dados dockerdb.
+Comando show tables; para listar todas as tabelas criadas dentro do banco de dados dockerdb.
+
+
 
 
 
